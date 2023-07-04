@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
 use Illuminate\Http\Request;
+
 
 class EtudiantController extends Controller
 {
@@ -27,6 +29,6 @@ class EtudiantController extends Controller
         $etudiant->telephone = $request->input('telephone');
         $etudiant->save();
 
-        return redirect('/')->with('status', 'Votre compte a bien été créé.');
+        return redirect('/welcome')->with('status', 'Votre compte a bien été créé.');
     }
 }

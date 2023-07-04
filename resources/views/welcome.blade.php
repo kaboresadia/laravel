@@ -8,26 +8,39 @@
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Formulaire</h1>
-        <form method="POST" action="/register/traitement">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-8 s1 pt-3">
+                @if (session('status'))
+                <div class="alert alert-success">
+        {{session('status')}}
+                </div>
+                @endif
+        <h1 class="form ">Formulaire d'inscription</h1>
+        <form method="POST" action='/register/traitement'>
             @csrf <!-- Ajoutez le jeton CSRF pour la protection des formulaires Laravel -->
-
-            <label for="nom">Nom :</label>
+            <div class="mb-3">
+            <label for="nom"  class="form-label">Nom :</label>
             <input type="text" name="nom" id="nom" class="form-control" required>
 
-            <label for="prenom">Prénom :</label>
+            <div class="mb-3">
+            <label for="prenom"  class="form-label">Prénom :</label>
             <input type="text" name="prenom" id="prenom" class="form-control" required>
-
-            <label for="email">Email :</label>
+            </div>
+            <div class="mb-3">
+            <label for="email"  class="form-label">Email :</label>
             <input type="email" name="email" id="email" class="form-control" required>
-
-            <label for="telephone">Téléphone :</label>
+            </div>
+            <div class="mb-3">
+            <label for="telephone"  class="form-label">Téléphone :</label>
             <input type="tel" name="telephone" id="telephone" class="form-control" required>
-
+            </div>
+            <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+            </div>
         </form>
-        
+        </div>
+    </div>
     </div>
 </body>
 </html>
